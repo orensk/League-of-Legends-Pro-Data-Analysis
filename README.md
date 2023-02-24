@@ -1,5 +1,5 @@
 # League-of-Legends-Pro-Data-Analysis
-A project for DSC80 at UCSD.
+
 
 ## Does Team Side Affect Gameplay Outcomes?
 I will be doing analysis on League of Legends Pro Game Data from 2022. <br> 
@@ -15,7 +15,7 @@ This data set had many irrelevant columns so I first selected only relevant colu
 
 ## Exploratory Data Analysis
 
-<iframe src=r"C:\Users\Oren\League-of-Legends-Pro-Data-Analysis\assetsgamelength.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src=r"C:\Users\Oren\League-of-Legends-Pro-Data-Analysis\assets\gamelength.html" width=800 height=600 frameBorder=0></iframe>
 
 
 
