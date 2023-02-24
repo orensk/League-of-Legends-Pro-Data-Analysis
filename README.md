@@ -31,6 +31,10 @@ I chose to analyze three main things in my univariate analysis:
 
 I chose to visualize the distribution of game lengths in order to better understand what objectives were available in the average game since certain objectives only spawn later into the game such as baron at 20 minutes and elder at 35. 
 
+<iframe src="assets/gamelength.html" width=800 height=600 frameBorder=0></iframe>
+
+The smallest game length observed was 15.55 minutes while the longest was 59.61 minutes
+
 #### Gold and XP diffs at 10 and 15 minutes:
 
 I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute marks to see how much of an impact early gold and xp leads had on later gold and xp leads. This was relevant to my broader question because the team side you are on has a larger impact on the game while still in laning phase (0 - 10/15 minutes typically).
@@ -41,7 +45,7 @@ I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute
 ### Interesting Aggregates
 
 {% include assets/gamelength.html %}
-<iframe src="assets/gamelength.html" width=800 height=600 frameBorder=0></iframe>
+
 
 
 
