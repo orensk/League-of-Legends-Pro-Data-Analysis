@@ -15,7 +15,7 @@ This data set had many irrelevant columns so I first selected only relevant colu
 
 ## Exploratory Data Analysis
 
-<iframe src=r"C:\Users\Oren\League-of-Legends-Pro-Data-Analysis\assets\gamelength.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/gamelength.html" width=800 height=600 frameBorder=0></iframe>
 
 
 
