@@ -11,10 +11,36 @@ In League of Legends you play on either the Red side or the Blue side. While the
 
 ## Data Cleaning Process
 
-This data set had many irrelevant columns so I first selected only relevant columns to my analysis. The data also consisted of both team data and player data. My analysis focused on team outcomes such as winrate and objective control so I chose to filter out player data. The dataset stored boolean data as floats of 1.0 and 0.0 so I converted relevant columns to boolean data. There was also match time data which I chose to convert from seconds to minutes to better understand in data in relation to the game. I also found that there were more False values than True values for the won games column meaning there were a few matches that were draws or some other issue. The data was organized by gameid so I had to group by gameid and find all instances where the won games didnt sum to 1. I then removed all rows where gameid groups didnt sum to 1.
+This data set had many irrelevant columns so I first selected only relevant columns to my analysis. These columns consisted of data concerning what team secured each objective first, team gold and xp differences at different points in the game, and total game time. <br>
+
+The data also consisted of both team data and player data. My analysis focused on team outcomes such as winrate and objective control so I chose to filter out player data. <br>
+
+The dataset stored boolean data as floats of 1.0 and 0.0 so I converted relevant columns to boolean data. There was also match time data which I chose to convert from seconds to minutes to better understand in data in relation to the game. <br>
+
+ I also found that there were more False values than True values for the won games column meaning there were a few matches that ended in draws or some other issue. The data was organized by gameid so I had to group by gameid and find all instances where the won games didnt sum to 1. I then removed all rows where gameid groups didnt sum to 1. 
 
 ## Exploratory Data Analysis
 
+### Univariate Analysis
+I chose to analyze three main things in my univariate analysis:
+- Game length distribution
+- Gold diffs at 10 and 15 minute marks
+- XP diffs at 10 and 15 minute marks <br>
+
+#### Game length distribution:
+
+I chose to visualize the distribution of game lengths in order to better understand what objectives were available in the average game since certain objectives only spawn later into the game such as baron at 20 minutes and elder at 35. 
+
+#### Gold and XP diffs at 10 and 15 minutes:
+
+I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute marks to see how much of an impact early gold and xp leads had on later gold and xp leads. This was relevant to my broader question because the team side you are on has a larger impact on the game while still in laning phase (0 - 10/15 minutes typically).
+
+### Bivariate Analysis
+
+
+### Interesting Aggregates
+
+{% include assets/gamelength.html %}
 <iframe src="assets/gamelength.html" width=800 height=600 frameBorder=0></iframe>
 
 
