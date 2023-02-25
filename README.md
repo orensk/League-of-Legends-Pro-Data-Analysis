@@ -44,7 +44,6 @@ I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute
 
 ### Interesting Aggregates
 
-{% include assets/gamelength.html %}
 
 
 
