@@ -32,6 +32,8 @@ The dataset stored boolean data as floats of 1.0 and 0.0 so I converted relevant
  I also found that there were more False values than True values for the won games column meaning there were a few matches that ended in draws or some other issue. The data was organized by gameid so I had to group by gameid and find all instances where the won games didnt sum to 1. I then removed all rows where gameid groups didnt sum to 1. 
 
 #### Cleaned Data:
+
+
 |   gamelength |   result | firstbaron   |   barons | firstblood   | firstdragon   |   dragons | firstherald   | firsttower   |   golddiffat10 |   xpdiffat10 |   golddiffat15 |   xpdiffat15 | gameid                | side   |
 |-------------:|---------:|:-------------|---------:|:-------------|:--------------|----------:|:--------------|:-------------|---------------:|-------------:|---------------:|-------------:|:----------------------|:-------|
 |      28.55   |        0 | False        |        0 | True         | False         |         1 | True          | True         |           1523 |          137 |            107 |        -1617 | ESPORTSTMNT01_2690210 | Blue   |
@@ -39,6 +41,7 @@ The dataset stored boolean data as floats of 1.0 and 0.0 so I converted relevant
 |      35.2333 |        0 | False        |        0 | False        | False         |         1 | True          | False        |          -1619 |        -1586 |          -1763 |         -906 | ESPORTSTMNT01_2690219 | Blue   |
 |      35.2333 |        1 | True         |        2 | True         | True          |         4 | False         | True         |           1619 |         1586 |           1763 |          906 | ESPORTSTMNT01_2690219 | Red    |
 |      32.8667 |        1 | True         |        1 | False        | True          |         4 | False         | True         |           -103 |          813 |           1191 |         2298 | ESPORTSTMNT01_2690227 | Blue   |
+
 
 ## Exploratory Data Analysis
 
