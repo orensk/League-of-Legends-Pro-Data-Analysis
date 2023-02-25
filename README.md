@@ -1,9 +1,9 @@
 # League-of-Legends-Pro-Data-Analysis
-
+<iframe src="assets/Summoner's_Rift_Update_Map.html" width=600 height=400 frameBorder=0></iframe>
 
 ## Does Team Side Affect Gameplay Outcomes?
 I will be doing analysis on League of Legends Pro Game Data from 2022. <br> 
-In League of Legends you play on either the Red side or the Blue side. While these sides are intended to be perfectly balanced, there are a few ways in which the map and camera orientation can affect gameplay. I intend to analyze whether or not there are visible effects on outcomes such as:
+In League of Legends you play on either the Red side or the Blue side of the map. While these sides are intended to be perfectly balanced and mirrored sides, there are a few ways in which the map and camera orientation can affect gameplay. I intend to analyze whether or not there are visible effects on outcomes such as:
 - Winrate
 - Objective control
 - Gold accumulation
