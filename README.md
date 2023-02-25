@@ -39,10 +39,33 @@ The smallest game length observed was 15.55 minutes while the longest was 59.61 
 
 I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute marks to see how much of an impact early gold and xp leads had on later gold and xp leads. This was relevant to my broader question because the team side you are on has a larger impact on the game while still in laning phase (0 - 10/15 minutes typically).
 
+##### Gold Diff at 10 minutes
+<iframe src="assets/gd10.html" width=600 height=600 frameBorder=0></iframe>
+
+##### Gold Diff at 15 minutes
+<iframe src="assets/gd15.html" width=400 height=400 frameBorder=0></iframe>
+
+##### XP Diff at 10 minutes
+<iframe src="assets/xpd10plot.html" width=200 height=200 frameBorder=0></iframe>
+
+##### XP Diff at 15 minutes
+<iframe src="assets/xpd15plot.html" width=100 height=100 frameBorder=0></iframe>
+
+
+
 ### Bivariate Analysis
+
+For my bivariate analysis I wanted to finally look into whether or not there were visible differences in outcomes based on team side. <br>
+In order to do so I chose to look at initial objective control and winrate by team color. This means I would be looking at:
+- Winrate by team side
+- First team to take dragon by team side
+- First team to take rift herald by team side
+- First team to take baron by team side
 
 
 ### Interesting Aggregates
+
+To easily show the affects of team side across these metrics I chose to groupby team side and find the mean values. This left me with winrate percentages by side, initial objective control rates by side, and mean gold and xp diffs by side at different points in the game.
 
 
 
