@@ -1,5 +1,5 @@
 # League-of-Legends-Pro-Data-Analysis
-<iframe src="assets/Summoner's_Rift_Update_Map.html" width=600 height=400 frameBorder=0></iframe>
+<iframe src="assets/Summoner's_Rift_Update_Map.webp" width=600 height=400 frameBorder=0></iframe>
 
 ## Does Team Side Affect Gameplay Outcomes?
 I will be doing analysis on League of Legends Pro Game Data from 2022. <br> 
@@ -78,6 +78,7 @@ In order to do so I chose to look at initial objective control and winrate by te
 ### Interesting Aggregates
 
 To easily show the affects of team side across these metrics I chose to groupby team side and find the mean values. This left me with winrate percentages by side, initial objective control rates by side, and mean gold and xp diffs by side at different points in the game.
+
 
 
 
