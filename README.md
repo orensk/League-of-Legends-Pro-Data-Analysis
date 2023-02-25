@@ -178,9 +178,12 @@ There are many columns in this data set so NMAR is largely weakened because thes
 
 I found that many columns' missingess were impacted by whether or not the position was describing a whole team or an individual player. I chose to demonstrate missing by design by looking at playername and playerid when the position column was set to team or not. All values for playername and playerid were missing when position was set to team.
 
-#### Perumtation Testing for Other Missingness:
+#### Perumtation Testing for Missingness:
 
 
+<iframe src="assets/permfig.html" width=600 height=400 frameBorder=0></iframe>
+
+I found a TVD value of 1.0 for the missingness of playername for rows with a position of team vs player. This fell far out of the TVD distribution generated through permutation test. This was to be expected as we had shown playername to be MD/MAR, conditional on whether or not position was set to 'team'. With an observed TVD of 1.0 falling far out of the TVD distribution generated, we can reject the null hypothesis that the distribution of 'position' is the same when 'playername' is missing and when 'playername' is not missing.
 
 ## Hypothesis Testing
 
