@@ -4,7 +4,7 @@
 
 ## Does Team Side Affect Gameplay Outcomes?
 I will be doing analysis on League of Legends Pro Game Data from 2022. <br> 
-In League of Legends you play on either the Red side or the Blue side of the map. While these sides are intended to be perfectly balanced and mirrored sides, there are a few ways in which the map and camera orientation can affect gameplay. I intend to analyze whether or not there are visible effects on outcomes such as:
+In League of Legends you play on either the Red side or the Blue side of the map. While these sides are intended to be perfectly balanced, there are a few ways in which the map and camera orientation can affect gameplay differently for each side. I intend to analyze whether or not there are visible effects on outcomes such as:
 - Winrate
 - Objective control
 - Gold accumulation
@@ -111,6 +111,15 @@ To show the effects of team side across these metrics I chose to groupby team si
 | Red    | 0.477155 |     0.469713 | 0.681865 |     0.494395 |      0.594159 |   2.35309 |      0.421479 |      0.45756 |       -86.7126 |     -23.6677 |        -248.29 |      4.70626 |
 
 ## Missingness Analysis
+
+### NMAR Analysis:
+
+There are many columns in this data set so NMAR is largely weakened because these columns offer explanations for the missingness of the values. Most columns can be explained by seeing how different leagues collect data, looking at the datacompleteness column, looking to the game timer to see if it was possible for an even to even happen, looking at position (player vs team), etc. 
+
+### Missingness Dependency
+
+<iframe src="assets/team_md_plot.html" width=600 height=400 frameBorder=0></iframe>
+
 
 ## Hypothesis Testing
 
