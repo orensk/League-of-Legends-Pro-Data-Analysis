@@ -97,7 +97,7 @@ In order to do so I chose to look at initial objective control and winrate by te
 - First team to take rift herald by team side
 - First team to take baron by team side
 
-_these values were filtered for games in which the respective objective was taken_
+###### _these values were filtered for games in which the respective objective was taken_
 
 ##### Winrate By Side
 <iframe src="assets/results.html" width=600 height=400 frameBorder=0></iframe>
@@ -120,7 +120,7 @@ Blue side favorably takes first herald 57.84% of the time compared to Red's 42.1
 Blue side takes first baron 50.43% of the time compared to Red's 49.56%
 
 ##### Takeaways:
-It seems that winrate is slighty favored to blue side, first early objectives (spawns dragon at 5 mins and herald at 8 mins) are heavily skewed to favor opposite sides, and first baron (mid game at 20 minutes) is mostly fair.
+It seems that winrate is slighty favored to blue side, first early objectives (dragon spawns at 5 mins and herald at 8 mins) are heavily skewed to favor opposite sides, and first baron (spawns mid game at 20 minutes) is mostly fair.
 
 ### Interesting Aggregates
 
@@ -128,10 +128,13 @@ To show the effects of team side across these metrics I chose to groupby team si
 
 
 ###### _these values were not filtered for games in which the respective objective was taken. refer to bivariate analysis for more accurate 'firstx' data_
+
+
 | side   |   result |   firstbaron |   barons |   firstblood |   firstdragon |   dragons |   firstherald |   firsttower |   golddiffat10 |   xpdiffat10 |   golddiffat15 |   xpdiffat15 |
 |:-------|---------:|-------------:|---------:|-------------:|--------------:|----------:|--------------:|-------------:|---------------:|-------------:|---------------:|-------------:|
 | Blue   | 0.522845 |     0.477909 | 0.668676 |     0.504192 |      0.405652 |   2.13848 |      0.578238 |      0.54244 |        86.7126 |      23.6677 |         248.29 |     -4.70626 |
 | Red    | 0.477155 |     0.469713 | 0.681865 |     0.494395 |      0.594159 |   2.35309 |      0.421479 |      0.45756 |       -86.7126 |     -23.6677 |        -248.29 |      4.70626 |
+
 
 We can see at a baseline that Blue side has a favorable winrate of 52.28% compared to Red's 47.71% <br>
 
@@ -143,15 +146,22 @@ With my knowledge of the game, I would assume that this is due to the placement 
 <iframe src="assets/Trisbush_1st2015.webp" width=600 height=400 frameBorder=0></iframe>
 <br>
 On Red side the tribrush is placed unfavorably for the top lane. <br>
-On Blue side the tribrush is placed unfavorably for the bot lane. <br>
-This placement means that these lanes will be more easily/effectively ganked by the jungler through their tribrush and therefore lose the lane. <br>
-For example: Red side Bot lane has a favorable tribrush that appears behind the enemy laners. The Red jungler can path through this for an easier gank onto the Blue bot laners. This allows red side to more easily win the bot lane and therfore control dragon, the bot sided objective, with help from the winning bot lane.
-<br>
+On Blue side the tribrush is placed unfavorably for the bot lane. 
 
-TLDR/Conclusion:
 <br>
-Objectives are top or bot sided. Top lane tribrush favors blue side while bot lane tribrush favors red side. 
-The objective with the same side as the favorable tribrush is taken more often by the favored team. This is just one ***possible*** explanation of the data. There are other factors like camera orientation or pick/ban order that could also influence these stats. 
+This placement means that these lanes will be more easily/effectively ganked by the jungler through their tribrush and therefore lose the lane. 
+
+<br>
+For example: Red side Bot lane has a favorable tribrush that appears behind the enemy laners. The Red jungler can path through this for an easier gank onto the Blue bot laners. This allows red side to more easily win the bot lane and therfore control dragon, the bot sided objective, with help from the winning bot lane.
+
+<br>
+This sidedness doesn't appear, however, when we look at the midgame objective, Baron. We saw in the bivariate analysis, that Blue side takes first baron 50.43% of the time compared to Red's 49.56%. Baron replaces Rift Herald at the 20 minute mark, spawning in the top side of the map. Seeing the previous data where Blue controls Rift Herald 57.84% of the time, I would think that there would be a more apparent disparity between Red and Blue first baron control. It seems however that objective control by side diminishes as game length progresses, and this would make sense with how games typically play out. Usually by the 20 minute mark when Baron spawns, teams have transitioned from 'laning phase' to being grouped to contest objectives/towers. Grouping would even out the map control allowing teams to more evenly contest objectives.
+
+<br>
+Looking at total objective control we can see that Red side actually has a slight lead in both total Dragons and total Barons. Red side on average gets 2.35 dragons while Blue gets 2.13. Red side on average gets 0.68 Barons while Blue gets 0.66. I'm unsure of what could contribute to Red taking slightly more total Dragons and Barons. It could be random chance or true advantage, I will have to see in the future.
+
+<br>
+Apart from objective control, we can see that Blue side, on average, has a favorable gold lead at the 10 minute mark which grows into the 15 minute mark. As for XP, Blue side on average starts with an XP lead at the 10 minute mark but this lead diminishes into a slight lead for Red on average at the 15 minute mark. It should be noted that the average Gold Diff values are a much more significant amount than the average XP values.
 
 
 ## Missingness Analysis
