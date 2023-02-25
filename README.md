@@ -3,14 +3,22 @@
 
 
 ## Does Team Side Affect Gameplay Outcomes?
-I will be doing analysis on League of Legends Pro Game Data from 2022. <br> 
-In League of Legends you play on either the Red side or the Blue side of the map. While these sides are intended to be perfectly balanced, there are a few ways in which the map and camera orientation can affect gameplay differently for each side. I intend to analyze whether or not there are visible effects on outcomes such as:
+_This analysis was done on League of Legends Pro Game Data from 2022._ <br> 
+
+In League of Legends the two teams play on either the Red side or the Blue side of the map. <br>
+While these sides are intended to be perfectly balanced, there are a few ways in which the map-structure and camera orientation can affect gameplay differently for each side. In pro matches teams are allowed to choose between red or blue side. Throughout the history of the game, teams have favored blue side over red. This could either be due to the pick ban order for the given side or due to the sides affecting gameplay outcomes. <br>
+
+I intend to analyze whether or not there are visible effects on gameplay outcomes such as:
 - Winrate
 - Objective control
 - Gold accumulation
 - XP accumulation
 
 ## Data Cleaning Process
+
+#### Data Introduction:
+- Structure: 149,232 rows × 123 columns
+- Relevant Columns: 'gamelength' (Game Time in Seconds), 'result' (Win/Loss), 'firstbaron' (Took/Lost First Baron), 'barons' (Number of Barons Taken by Team), 'firstblood' (Took/Lost First Blood), 'firstdragon' (Took/Lost First Dagon), 'dragons' (Number of Dragons Taken by Team), 'firstherald' (Took/Lost First Rift Herald), 'firsttower' (Took/Lost First Tower), 'golddiffat10' (Gold Diff vs Other Team at 10 Minutes), 'xpdiffat10' (XP Diff vs Other Team at 10 Minutes), 'golddiffat15' (Gold Diff vs Other Team at 15 Minutes), 'xpdiffat15' (XP Diff vs Other Team at 15 Minutes), 'gameid' (ID for given game), 'side' (Red/Blue team side)
 
 #### The Initial Data:
 
@@ -26,22 +34,24 @@ In League of Legends you play on either the Red side or the Blue side of the map
 
 This data set had many irrelevant columns so I first selected only relevant columns to my analysis. These columns consisted of data concerning what team secured each objective first, team gold and xp differences at different points in the game, and total game time. <br>
 
-The data also consisted of both team data and player data. My analysis focused on team outcomes such as winrate and objective control so I chose to filter out player data. <br>
+The data also consisted of both team data and player data. My analysis focused on team outcomes such as winrate and objective control so I chose to filter out player data. Using player data would have led to each data point being repeated 5 times for each team.<br>
 
 The dataset stored boolean data as floats of 1.0 and 0.0 so I converted relevant columns to boolean data. There was also match time data which I chose to convert from seconds to minutes to better understand in data in relation to the game. <br>
 
- I also found that there were more False values than True values for the won games column meaning there were a few matches that ended in draws or some other issue. The data was organized by gameid so I had to group by gameid and find all instances where the won games didnt sum to 1. I then removed all rows where gameid groups didnt sum to 1. 
+I also found that there were more False values than True values for the won games column meaning there were a few matches that ended in draws or some other issue. The data was organized by gameid so I had to group by gameid and find all instances where the won games didnt sum to 1. I then removed all rows where gameid groups didnt sum to 1. <br>
+
+There were also games where no barons/heralds/dragons were taken leading to two False values for the 'firstx' columns. I chose not to filter these games out at this point because they had otherwise valid and valuable data for my analysis. Instead I later filter out these games for specific parts of my analysis such as first baron.
 
 #### Cleaned Data:
 
 
 |   gamelength |   result | firstbaron   |   barons | firstblood   | firstdragon   |   dragons | firstherald   | firsttower   |   golddiffat10 |   xpdiffat10 |   golddiffat15 |   xpdiffat15 | gameid                | side   |
 |-------------:|---------:|:-------------|---------:|:-------------|:--------------|----------:|:--------------|:-------------|---------------:|-------------:|---------------:|-------------:|:----------------------|:-------|
-|      28.55   |        0 | False        |        0 | True         | False         |         1 | True          | True         |           1523 |          137 |            107 |        -1617 | ESPORTSTMNT01_2690210 | Blue   |
-|      28.55   |        1 | False        |        0 | False        | True          |         3 | False         | False        |          -1523 |         -137 |           -107 |         1617 | ESPORTSTMNT01_2690210 | Red    |
-|      35.2333 |        0 | False        |        0 | False        | False         |         1 | True          | False        |          -1619 |        -1586 |          -1763 |         -906 | ESPORTSTMNT01_2690219 | Blue   |
-|      35.2333 |        1 | True         |        2 | True         | True          |         4 | False         | True         |           1619 |         1586 |           1763 |          906 | ESPORTSTMNT01_2690219 | Red    |
-|      32.8667 |        1 | True         |        1 | False        | True          |         4 | False         | True         |           -103 |          813 |           1191 |         2298 | ESPORTSTMNT01_2690227 | Blue   |
+|      28.55   |        False | False        |        0 | True         | False         |         1 | True          | True         |           1523 |          137 |            107 |        -1617 | ESPORTSTMNT01_2690210 | Blue   |
+|      28.55   |        True | False        |        0 | False        | True          |         3 | False         | False        |          -1523 |         -137 |           -107 |         1617 | ESPORTSTMNT01_2690210 | Red    |
+|      35.2333 |        False | False        |        0 | False        | False         |         1 | True          | False        |          -1619 |        -1586 |          -1763 |         -906 | ESPORTSTMNT01_2690219 | Blue   |
+|      35.2333 |        True | True         |        2 | True         | True          |         4 | False         | True         |           1619 |         1586 |           1763 |          906 | ESPORTSTMNT01_2690219 | Red    |
+|      32.8667 |        True | True         |        1 | False        | True          |         4 | False         | True         |           -103 |          813 |           1191 |         2298 | ESPORTSTMNT01_2690227 | Blue   |
 
 
 ## Exploratory Data Analysis
@@ -76,7 +86,7 @@ I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute
 ##### XP Diff at 15 minutes
 <iframe src="assets/xpd15plot.html" width=600 height=400 frameBorder=0></iframe>
 
-
+Observing these plots it seems that the distribution remains similar but grows in value from the 10 minute to 15 minute mark. I would think that this means early leads tend to grow with time rather than even out. This is possibly important if we find that team side has a stronger impact on the early game.
 
 ### Bivariate Analysis
 
@@ -87,40 +97,55 @@ In order to do so I chose to look at initial objective control and winrate by te
 - First team to take rift herald by team side
 - First team to take baron by team side
 
+_these values were filtered for games in which the respective objective was taken_
+
 ##### Winrate By Side
 <iframe src="assets/results.html" width=600 height=400 frameBorder=0></iframe>
+
+Blue side has a favorable winrate of 52.28% compared to Red's 47.71%
 
 ##### First Dragon Rate by side
 <iframe src="assets/fdragon.html" width=600 height=400 frameBorder=0></iframe>
 
+Red side favorably takes first dragon 59.42% of the time compared to Blue's 40.57%
+
 ##### First Rift Herald Rate by side
 <iframe src="assets/fherald.html" width=600 height=400 frameBorder=0></iframe>
+
+Blue side favorably takes first herald 57.84% of the time compared to Red's 42.15%
 
 ##### First Baron Rate by side
 <iframe src="assets/fbaron.html" width=600 height=400 frameBorder=0></iframe>
 
+Blue side takes first baron 50.43% of the time compared to Red's 49.56%
+
+##### Takeaways:
+It seems that winrate is slighty favored to blue side, first early objectives (spawns dragon at 5 mins and herald at 8 mins) are heavily skewed to favor opposite sides, and first baron (mid game at 20 minutes) is mostly fair.
 
 ### Interesting Aggregates
 
 To show the effects of team side across these metrics I chose to groupby team side and find the mean values. This left me with winrate percentages by side, initial objective control rates by side, and mean gold and xp diffs by side at different points in the game.
 
 
+###### _these values were not filtered for games in which the respective objective was taken. refer to bivariate analysis for more accurate 'firstx' data_
 | side   |   result |   firstbaron |   barons |   firstblood |   firstdragon |   dragons |   firstherald |   firsttower |   golddiffat10 |   xpdiffat10 |   golddiffat15 |   xpdiffat15 |
 |:-------|---------:|-------------:|---------:|-------------:|--------------:|----------:|--------------:|-------------:|---------------:|-------------:|---------------:|-------------:|
 | Blue   | 0.522845 |     0.477909 | 0.668676 |     0.504192 |      0.405652 |   2.13848 |      0.578238 |      0.54244 |        86.7126 |      23.6677 |         248.29 |     -4.70626 |
 | Red    | 0.477155 |     0.469713 | 0.681865 |     0.494395 |      0.594159 |   2.35309 |      0.421479 |      0.45756 |       -86.7126 |     -23.6677 |        -248.29 |      4.70626 |
 
-We can see at a baseline that Blue side has a winrate of 52.28% compared to Red's 47.71% <br>
+We can see at a baseline that Blue side has a favorable winrate of 52.28% compared to Red's 47.71% <br>
 
-More interestingly, when we compare the sides and the objectives we see a strong relation between firstherald going to Blue Side and first dragon going to Red side <br>
+More interestingly, when we compare the sides and the early game objectives we see a strong relation between first herald going to Blue Side and first dragon going to Red side. <br>
 
-Blue side takes first herald 57.82% of the time while Red side takes first dragon 59.41% of the time. <br>
+Blue side takes first herald 57.84% of the time while Red side takes first dragon 59.42% of the time. <br>
 
-With my knowledge of the game, I would assume that this is due to the placement of the 'tribrush' for the bot and top lanes.
-On Red side, the tribrush is placed unfavorably for the top side
-On Blue side. the tribrush is placed unfavorably for the bot side
-This placement means that these lanes will be more likely to get ganked by the jungler through their tribrush and therefore lose the lane
-With Red top side unfavored and bot side favored by tribrush, the corresponding objectives of dragon at the bot side and herald at the top side are then more or less easily taken.
+With my knowledge of the game, I would assume that this is due to the placement of the 'tribrush' for the bot and top lanes. <br>
+<iframe src="assets/Trisbush_1st2015.webp" width=600 height=400 frameBorder=0></iframe>
+<br>
+On Red side the tribrush is placed unfavorably for the top lane. <br>
+On Blue side the tribrush is placed unfavorably for the bot lane. <br>
+This placement means that these lanes will be more easily/effectively ganked by the jungler through their tribrush and therefore lose the lane. <br>
+For example: Red side Bot lane has a favorable tribrush that appears behind the enemy laners. The Red jungler can path through this for an easier gank onto the Blue bot laners. This allows red side to more easily win the bot lane and therfore control dragon, the bot sided objective, with help from the winning bot lane.
 <br>
 
 TLDR/Conclusion:
