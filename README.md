@@ -31,7 +31,7 @@ I chose to analyze three main things in my univariate analysis:
 
 I chose to visualize the distribution of game lengths in order to better understand what objectives were available in the average game since certain objectives only spawn later into the game such as baron at 20 minutes and elder at 35. 
 
-<iframe src="assets/gamelength.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/gamelength.html" width=600 height=400 frameBorder=0></iframe>
 
 The smallest game length observed was 15.55 minutes while the longest was 59.61 minutes
 
@@ -40,16 +40,16 @@ The smallest game length observed was 15.55 minutes while the longest was 59.61 
 I chose to analyze the distribution of gold and xp diffs at the 10 and 15 minute marks to see how much of an impact early gold and xp leads had on later gold and xp leads. This was relevant to my broader question because the team side you are on has a larger impact on the game while still in laning phase (0 - 10/15 minutes typically).
 
 ##### Gold Diff at 10 minutes
-<iframe src="assets/gd10.html" width=600 height=600 frameBorder=0></iframe>
+<iframe src="assets/gd10.html" width=600 height=400 frameBorder=0></iframe>
 
 ##### Gold Diff at 15 minutes
-<iframe src="assets/gd15.html" width=400 height=400 frameBorder=0></iframe>
+<iframe src="assets/gd15.html" width=600 height=400 frameBorder=0></iframe>
 
 ##### XP Diff at 10 minutes
-<iframe src="assets/xpd10plot.html" width=200 height=200 frameBorder=0></iframe>
+<iframe src="assets/xpd10plot.html" width=600 height=400 frameBorder=0></iframe>
 
 ##### XP Diff at 15 minutes
-<iframe src="assets/xpd15plot.html" width=100 height=100 frameBorder=0></iframe>
+<iframe src="assets/xpd15plot.html" width=600 height=400 frameBorder=0></iframe>
 
 
 
@@ -61,6 +61,18 @@ In order to do so I chose to look at initial objective control and winrate by te
 - First team to take dragon by team side
 - First team to take rift herald by team side
 - First team to take baron by team side
+
+##### Winrate By Side
+<iframe src="assets/results.html" width=600 height=400 frameBorder=0></iframe>
+
+##### First Dragon Rate by side
+<iframe src="assets/fdragon.html" width=600 height=400 frameBorder=0></iframe>
+
+##### First Rift Herald Rate by side
+<iframe src="assets/fherald.html" width=600 height=400 frameBorder=0></iframe>
+
+##### First Baron Rate by side
+<iframe src="assets/fbaron.html" width=600 height=400 frameBorder=0></iframe>
 
 
 ### Interesting Aggregates
