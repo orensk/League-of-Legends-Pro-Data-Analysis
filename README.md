@@ -149,23 +149,35 @@ I found that many columns' missingess were impacted by whether or not the positi
 
 ## Hypothesis Testing
 
+### Method
+My data consisted of 1 year containing 10,615 pro games. I chose to simulate 1 million 'years' of 10,615 games assuming balanced 50/50 distribution of win/firstobjective rate since the sides are intended to be perfectly balanced for gameplay. This allows me to see the odds of the observed number of wins/firstobjectives happening under a perfectly balanced game.
+<br>
 
+
+#### Null Hypothesis 1: Team Side Does Not Affect Winrate Outcomes
+#### Alt Hypothesis: Team Side Does Affect Winrate Outcomes
+#### Test Statistic: The Number of Wins, by Side.
 ##### Observed Red and Blue Win Counts Over 10,615 Games vs Wincount Distribution Assuming Equal Winrate
 <iframe src="assets/wrfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side wins far more than expected and red side wins far less than expected. With pvalues very close to 0 (1e-06 and 2e-06 respectively) we can safely reject the null hypothesis, at a significance level of 0.01, that team side does not affect winrates. It is very likely that team side affects winrate.
 
-We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side wins far more than expected and red side wins far less than expected. With pvalues very close to 0 (1e-06 and 2e-06 respectively) we can safely reject the null hypothesis that team side does not affect winrates.
-
-##### Observed Red and Blue Initial Dragon Counts Over 10,615 Games vs Initial Dragon Distribution Assuming Equal Rate Over Sam
+#### Null Hypothesis 2: Team Side Does Not Affect Initial Dragon Take Rates
+#### Alt Hypothesis: Team Side Does Affect Initial Dragon Take Rates
+#### Test Statistic: The Number of First Dragons Taken, by Side.
+##### Observed Red and Blue Initial Dragon Counts Over 10,615 Games vs Initial Dragon Distribution Assuming Equal Rate
 <iframe src="assets/fdragonfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
 
-We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Red side takes first dragon far more than expected and blue side takes dragon far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis that team side does not affect initial dragon rates.
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Red side takes first dragon far more than expected and blue side takes dragon far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis, at a significance level of 0.01, that team side does not affect initial dragon rates. It is very likely that team side affects ability to take first Rift Herald.
 
+#### Null Hypothesis 3: Team Side Does Not Affect Initial Rift Herald Take Rates
+#### Alt Hypothesis: Team Side Does Affect Initial Rift Herald Take Rates
+#### Test Statistic: The Number of First Rift Heralds Taken, by Side.
 ##### Observed Red and Blue Initial Herald Counts Over 10,615 Games vs Initial Herald Distribution Assuming Equal Rate
 <iframe src="assets/fheraldfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
-We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side takes first herald far more than expected and red side takes herald far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis that team side does not affect initial herald rates.
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side takes first herald far more than expected and red side takes herald far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis, at a significance level of 0.01, that team side does not affect initial herald rates. It is very likely that team side affects ability to take first Rift Herald.
 
 
 
