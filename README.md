@@ -110,6 +110,25 @@ To show the effects of team side across these metrics I chose to groupby team si
 | Blue   | 0.522845 |     0.477909 | 0.668676 |     0.504192 |      0.405652 |   2.13848 |      0.578238 |      0.54244 |        86.7126 |      23.6677 |         248.29 |     -4.70626 |
 | Red    | 0.477155 |     0.469713 | 0.681865 |     0.494395 |      0.594159 |   2.35309 |      0.421479 |      0.45756 |       -86.7126 |     -23.6677 |        -248.29 |      4.70626 |
 
+We can see at a baseline that Blue side has a winrate of 52.28% compared to Red's 47.71% <br>
+
+More interestingly, when we compare the sides and the objectives we see a strong relation between firstherald going to Blue Side and first dragon going to Red side <br>
+
+Blue side takes first herald 57.82% of the time while Red side takes first dragon 59.41% of the time. <br>
+
+With my knowledge of the game, I would assume that this is due to the placement of the 'tribrush' for the bot and top lanes.
+On Red side, the tribrush is placed unfavorably for the top side
+On Blue side. the tribrush is placed unfavorably for the bot side
+This placement means that these lanes will be more likely to get ganked by the jungler through their tribrush and therefore lose the lane
+With Red top side unfavored and bot side favored by tribrush, the corresponding objectives of dragon at the bot side and herald at the top side are then more or less easily taken.
+<br>
+
+TLDR/Conclusion:
+<br>
+Objectives are top or bot sided. Top lane tribrush favors blue side while bot lane tribrush favors red side. 
+The objective with the same side as the favorable tribrush is taken more often by the favored team. This is just one ***possible*** explanation of the data. There are other factors like camera orientation or pick/ban order that could also influence these stats. 
+
+
 ## Missingness Analysis
 
 ### NMAR Analysis:
@@ -118,24 +137,35 @@ There are many columns in this data set so NMAR is largely weakened because thes
 
 ### Missingness Dependency
 
+#### Missing By Design:
+
 <iframe src="assets/team_md_plot.html" width=600 height=400 frameBorder=0></iframe>
+
+I found that many columns' missingess were impacted by whether or not the position was describing a whole team or an individual player. I chose to demonstrate missing by design by looking at playername and playerid when the position column was set to team or not. All values for playername and playerid were missing when position was set to team.
+
+#### Perumtation Testing for Other Missingness:
+
 
 
 ## Hypothesis Testing
-
 
 
 ##### Observed Red and Blue Win Counts Over 10,615 Games vs Wincount Distribution Assuming Equal Winrate
 <iframe src="assets/wrfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
 
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side wins far more than expected and red side wins far less than expected. With pvalues very close to 0 (1e-06 and 2e-06 respectively) we can safely reject the null hypothesis that team side does not affect winrates.
+
 ##### Observed Red and Blue Initial Dragon Counts Over 10,615 Games vs Initial Dragon Distribution Assuming Equal Rate Over Sam
 <iframe src="assets/fdragonfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
 
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Red side takes first dragon far more than expected and blue side takes dragon far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis that team side does not affect initial dragon rates.
+
 ##### Observed Red and Blue Initial Herald Counts Over 10,615 Games vs Initial Herald Distribution Assuming Equal Rate
 <iframe src="assets/fheraldfighyp.html" width=600 height=400 frameBorder=0></iframe>
 
+We can see that the observed values for each side fall far outside the distribution expected with balanced odds. Blue side takes first herald far more than expected and red side takes herald far less than expected. With pvalues very close to 0 (0.000) we can safely reject the null hypothesis that team side does not affect initial herald rates.
 
 
 
