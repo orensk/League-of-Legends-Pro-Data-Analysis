@@ -185,6 +185,12 @@ I found that many columns' missingess were impacted by whether or not the positi
 
 I found a TVD value of 1.0 for the missingness of playername for rows with a position of team vs player. This fell far out of the TVD distribution generated through permutation test. This was to be expected as we had shown playername to be MD/MAR, conditional on whether or not position was set to 'team'. With an observed TVD of 1.0 falling far out of the TVD distribution generated, we can reject the null hypothesis that the distribution of 'position' is the same when 'playername' is missing and when 'playername' is not missing.
 
+#### Demonstration on Column with no relation:
+
+<iframe src="assets/permfig2.html" width=600 height=400 frameBorder=0></iframe>
+
+This TVD value of 0 fell within the TVD distribution generated through permutation testing. This was expected as the 'side' column should not have any effect on the missingness of playername data. We fail to reject the null hypothesis that the distribution of 'side' is the same when 'playername' is missing and when 'playername' is not missing.
+
 ## Hypothesis Testing
 
 ### Method
